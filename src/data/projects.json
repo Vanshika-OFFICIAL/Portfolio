@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "BioVault – Secure Biomedical Data Portal",
+    "problem": "Healthcare systems lack secure and structured ways to manage sensitive biomedical data.",
+    "impact": "Implemented role-based authentication and secure APIs, improving data access control and system reliability.",
+    "tech": ["React.js", "Node.js", "MongoDB", "Firebase"],
+    "github": "https://github.com/Vanshika-OFFICIAL/BioVault-Data-Portal",
+    "live": "https://biovault-e4f8e.firebaseapp.com/",
+    "image": "BioVault.png"
+  },
+  {
+    "id": 2,
+    "title": "IngreGenius – Recipe Recommendation Platform",
+    "problem": "Users struggle to find recipes using available ingredients.",
+    "impact": "Built an API-driven filtering system that improves recipe discovery speed and user decision-making.",
+    "tech": ["React", "Node.js", "MongoDB", "REST API"],
+    "github": "https://github.com/Vanshika-OFFICIAL/IngreGenius-RecipeSite",
+    "live": "https://ingregenius.netlify.app/",
+    "image": "IngreGenius.png"
+  }
+]
