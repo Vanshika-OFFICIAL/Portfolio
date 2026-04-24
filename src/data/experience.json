@@ -1,0 +1,24 @@
+[
+  {
+    "role": "Summer Training Intern",
+    "company": "DRDO DIPAS, Delhi (On-site)",
+    "duration": "Oct 2025 – Nov 2025",
+    "tech": ["Python", "React", "Data Analysis"],
+    "points": [
+      "Built a data analysis tool using Python with a web-based interface",
+      "Developed React components and integrated data workflows",
+      "Optimized backend logic for faster computation"
+    ]
+  },
+  {
+    "role": "Tech Intern",
+    "company": "LittleMove (Remote)",
+    "duration": "Jul 2025 – Aug 2025",
+    "tech": ["React", "Node.js", "MongoDB"],
+    "points": [
+      "Developed responsive React interfaces for support and billing modules",
+      "Built REST APIs for handling user queries and billing operations",
+      "Worked with MongoDB for backend data management"
+    ]
+  }
+]
