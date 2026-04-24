@@ -73,7 +73,7 @@ export default function Hero() {
               className="text-[11px] tracking-[0.2em] uppercase text-slate-500"
               style={{ fontFamily: "'DM Mono', 'JetBrains Mono', monospace" }}
             >
-              Open to full-time roles
+              Open to Work
             </span>
           </motion.div>
 

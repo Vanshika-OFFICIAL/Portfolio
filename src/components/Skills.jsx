@@ -1,25 +1,4 @@
-import { motion } from "framer-motion";
 import skillsData from "../data/skills.json";
-
-const sectionVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
-};
 
 export default function Skills() {
   const totalCategories = skillsData.length;
@@ -50,15 +29,8 @@ export default function Skills() {
         />
       </div>
 
-      <motion.div
-        className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-      >
-
-        <motion.div variants={fadeUp} className="max-w-3xl">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16">
+        <div className="max-w-3xl">
           <p className="text-[11px] uppercase tracking-[0.3em] text-violet-300/70" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
             Capability snapshot
           </p>
@@ -73,8 +45,9 @@ export default function Skills() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
             A production-ready stack I use to architect, build, and scale real-world applications with clean UI, fast interactions, and stable backends.
           </p>
+
           <div className="mt-5 flex flex-wrap gap-2">
-            {['Frontend', 'Backend', 'Database', 'Deployment'].map((label) => (
+            {["Frontend", "Backend", "Database", "Deployment"].map((label) => (
               <span
                 key={label}
                 className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-slate-300"
@@ -84,10 +57,10 @@ export default function Skills() {
               </span>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div variants={fadeUp} className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <motion.div whileHover={{ y: -6, scale: 1.01 }} transition={{ type: "spring", stiffness: 260, damping: 24 }} className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
             <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               Average proficiency
             </p>
@@ -95,9 +68,9 @@ export default function Skills() {
               {averageLevel}%
             </p>
             <p className="mt-2 text-sm text-slate-400">Across the current stack.</p>
-          </motion.div>
+          </div>
 
-          <motion.div whileHover={{ y: -6, scale: 1.01 }} transition={{ type: "spring", stiffness: 260, damping: 24 }} className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
             <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               Strongest skill
             </p>
@@ -105,9 +78,9 @@ export default function Skills() {
               {strongestSkill.name}
             </p>
             <p className="mt-2 text-sm text-violet-300">{strongestSkill.level}% mastery</p>
-          </motion.div>
+          </div>
 
-          <motion.div whileHover={{ y: -6, scale: 1.01 }} transition={{ type: "spring", stiffness: 260, damping: 24 }} className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
             <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               Categories
             </p>
@@ -115,9 +88,9 @@ export default function Skills() {
               {totalCategories}
             </p>
             <p className="mt-2 text-sm text-slate-400">Frontend, backend, database, and language systems.</p>
-          </motion.div>
+          </div>
 
-          <motion.div whileHover={{ y: -6, scale: 1.01 }} transition={{ type: "spring", stiffness: 260, damping: 24 }} className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
+          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
             <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               Skills tracked
             </p>
@@ -125,19 +98,13 @@ export default function Skills() {
               {totalSkills}
             </p>
             <p className="mt-2 text-sm text-slate-400">Always expanding, never padded.</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div variants={sectionVariants} className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-
-          {skillsData.map((group, index) => (
-            <motion.div
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {skillsData.map((group) => (
+            <div
               key={group.category}
-              variants={fadeUp}
-              transition={{ duration: 0.6, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -8, scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-              viewport={{ once: false, amount: 0.2 }}
               className="group relative rounded-3xl border border-white/10 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:bg-white/5"
             >
               <div className="absolute inset-0 rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
@@ -169,15 +136,11 @@ export default function Skills() {
                       </div>
 
                       <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 0.95, delay: 0.15 + index * 0.04, ease: [0.22, 1, 0.36, 1] }}
-                          viewport={{ once: false }}
+                        <div
+                          style={{ width: `${skill.level}%` }}
                           className="h-full rounded-full bg-linear-to-r from-violet-500 via-fuchsia-500 to-indigo-500 shadow-[0_0_18px_rgba(168,85,247,0.35)]"
                         />
                       </div>
-
                     </div>
                   ))}
                 </div>
@@ -185,15 +148,11 @@ export default function Skills() {
                 <div className="mt-auto pt-2 text-xs uppercase tracking-[0.18em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
                   {group.category} systems tuned for production
                 </div>
-
               </div>
-
-            </motion.div>
+            </div>
           ))}
-
-        </motion.div>
-
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
