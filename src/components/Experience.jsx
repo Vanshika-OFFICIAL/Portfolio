@@ -38,7 +38,7 @@ export default function Experience() {
               <div className="absolute -left-2.5 top-6 w-4 h-4 bg-violet-500 rounded-full border-2 border-[#07070f]" />
 
               {/* Card */}
-              <div className="relative rounded-2xl border border-white/10 bg-[#0f0f1c]/70 backdrop-blur-xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40">
+              <div className="relative rounded-2xl border border-white/10 bg-[#0f0f1c]/70 backdrop-blur-xl p-7 transition-all duration-300 md:hover:-translate-y-1 hover:border-violet-400/40">
 
                 {/* Glow (same as contact) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">

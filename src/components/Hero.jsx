@@ -119,7 +119,7 @@ export default function Hero() {
           <motion.div {...fadeUp(0.40)} className="flex flex-wrap items-center gap-3 pt-1">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 active:bg-violet-700 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07070f]"
+              className="inline-flex items-center gap-2 bg-violet-600 md:hover:bg-violet-500 active:bg-violet-700 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07070f]"
             >
               <svg aria-hidden="true" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <rect x="3" y="3" width="7" height="7" rx="1" />

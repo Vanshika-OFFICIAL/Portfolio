@@ -110,7 +110,7 @@ export default function Contact() {
               </p>
 
               <div className="flex flex-col gap-4 mt-2">
-                <a href="mailto:vanshika9354@gmail.com" className="bg-[#07070f] border border-white/10 px-4 py-3 rounded-lg text-sm hover:border-violet-400 transition">
+                <a href="mailto:vanshika9354@gmail.com" className="bg-[#07070f] border border-white/10 px-4 py-3 rounded-lg text-sm md:hover:border-violet-400 transition">
                   📧 vanshika9354@gmail.com
                 </a>
 

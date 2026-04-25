@@ -105,9 +105,9 @@ export default function Skills() {
           {skillsData.map((group) => (
             <div
               key={group.category}
-              className="group relative rounded-3xl border border-white/10 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:bg-white/5"
+              className="group relative rounded-3xl border border-white/10 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 md:group-hover:-translate-y-1 md:group-hover:border-violet-400/40 md:group-hover:bg-white/5"
             >
-              <div className="absolute inset-0 rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100 pointer-events-none">
+              <div className="absolute inset-0 rounded-3xl opacity-0 transition duration-300 md:group-hover:opacity-100 pointer-events-none">
                 <div className="h-full w-full rounded-3xl bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_65%)]" />
               </div>
 

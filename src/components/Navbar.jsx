@@ -56,7 +56,7 @@ function NavLink({ href, label, active, onClick }) {
     >
       <span
         className={`relative z-10 transition ${
-          isActive ? "text-white" : "text-slate-400 hover:text-white"
+          isActive ? "text-white" : "text-slate-400 md:hover:text-white"
         }`}
       >
         {label}
@@ -98,7 +98,7 @@ export default function Navbar() {
           }}
           className="text-white font-bold text-lg"
         >
-          Vanshika.dev
+          Vanshika.Dev
         </a>
 
         {/* Desktop Links */}

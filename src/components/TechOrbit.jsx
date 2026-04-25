@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import profileImage from "../assets/profile.jpg";
-
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiTailwindcss, SiJavascript } from "react-icons/si";
 const TECH = [
-  { label: "MongoDB",    angle:   0, color: "#47A248", letter: "M"  },
-  { label: "Express",    angle:  60, color: "#9ca3af", letter: "Ex" },
-  { label: "React",      angle: 120, color: "#61DAFB", letter: "R"  },
-  { label: "Node.js",    angle: 180, color: "#68A063", letter: "N"  },
-  { label: "Tailwind",   angle: 240, color: "#38BDF8", letter: "Tw" },
-  { label: "JavaScript", angle: 300, color: "#F7DF1E", letter: "JS" },
+  { label: "MongoDB",    angle:   0, color: "#47A248", Icon: SiMongodb },
+  { label: "Express",    angle:  60, color: "#9ca3af", Icon: SiExpress },
+  { label: "React",      angle: 120, color: "#61DAFB", Icon: SiReact },
+  { label: "Node.js",    angle: 180, color: "#68A063", Icon: SiNodedotjs },
+  { label: "Tailwind",   angle: 240, color: "#38BDF8", Icon: SiTailwindcss },
+  { label: "JavaScript", angle: 300, color: "#F7DF1E", Icon: SiJavascript },
 ];
 
 function BadgePosition(angleDeg, radius) {
@@ -30,22 +30,23 @@ export default function TechOrbit() {
       />
 
       {/* Tech badges — static position, individual hover only */}
-      {TECH.map(({ label, angle, color, letter }) => (
+      {TECH.map(({ label, angle, color, Icon }) => (
         <motion.div
           key={label}
           aria-label={label}
           className="absolute w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold cursor-default"
           style={{
-            ...BadgePosition(angle, 150),
+            ...BadgePosition(angle,118),
             background: "rgba(13,13,24,0.92)",
             border: `1px solid ${color}38`,
             color,
-            fontFamily: "'DM Mono', 'JetBrains Mono', monospace",
           }}
           whileHover={{ scale: 1.15, borderColor: color + "88" }}
           transition={{ type: "spring", stiffness: 340, damping: 22 }}
           title={label}
-        />
+        >
+          <Icon className="text-[16px]" />
+        </motion.div>
       ))}
 
       {/* ── Image frame — gradient border via padding trick ── */}
@@ -68,7 +69,7 @@ export default function TechOrbit() {
           {/* Shimmer overlay — top-left highlight */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 z-10 pointer-events-none"
+            className="absolute inset-0 z-30 pointer-events-none"
             style={{
               background: "linear-gradient(145deg, rgba(167,139,250,0.09) 0%, rgba(99,102,241,0.03) 40%, transparent 65%)",
             }}
@@ -130,7 +131,7 @@ export default function TechOrbit() {
           className="text-[11px] text-slate-400 whitespace-nowrap"
           style={{ fontFamily: "'DM Mono', monospace" }}
         >
-          Open to roles
+          Open to Work
         </span>
       </div>
 

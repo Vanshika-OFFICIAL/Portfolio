@@ -3,7 +3,7 @@ export default function ProjectCard({ project }) {
   const imageSrc = new URL(`../assets/${image}`, import.meta.url).href;
 
   return (
-    <article className="group flex flex-col h-full rounded-xl border border-white/10 bg-[#0f0f1c] overflow-hidden transition hover:-translate-y-1 hover:border-white/20">
+    <article className="group flex flex-col h-full rounded-xl border border-white/10 bg-[#0f0f1c] overflow-hidden transition md:hover:-translate-y-1 hover:border-white/20">
 
       {/* IMAGE */}
       <div className="relative h-48 overflow-hidden">
