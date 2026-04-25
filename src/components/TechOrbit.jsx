@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import profileImage from "../assets/profile.jpg";
+import { useRef, useEffect, useState } from "react";
 import {
   SiMongodb,
   SiExpress,
@@ -18,27 +19,41 @@ const TECH = [
   { label: "JavaScript", angle: 300, color: "#F7DF1E", Icon: SiJavascript },
 ];
 
-// ✅ Responsive radius (FIXED)
-const getRadius = () => {
-  if (typeof window === "undefined") return 120;
-  if (window.innerWidth >= 1024) return 180; // desktop
-  if (window.innerWidth >= 640) return 140;  // tablet
-  return 105; // mobile
-};
-
 function BadgePosition(angleDeg, radius) {
   const rad = (angleDeg * Math.PI) / 180;
   return {
-    top: `calc(50% + ${Math.sin(rad) * radius}px - 20px)`,
-    left: `calc(50% + ${Math.cos(rad) * radius}px - 20px)`,
+    top: `calc(50% + ${Math.sin(rad) * radius}px - 18px)`,
+    left: `calc(50% + ${Math.cos(rad) * radius}px - 18px)`,
   };
 }
 
 export default function TechOrbit() {
-  const radius = getRadius();
+  const containerRef = useRef(null);
+  const [radius, setRadius] = useState(120);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      if (!containerRef.current) return;
+
+      const size = containerRef.current.offsetWidth;
+
+      // 🔥 ONLY FIX: dynamic radius based on container
+      const calculatedRadius = size / 2.1;
+
+      setRadius(calculatedRadius);
+    };
+
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
 
   return (
-    <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] shrink-0">
+    <div
+      ref={containerRef}
+      className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] shrink-0"
+    >
 
       {/* Orbit ring */}
       <motion.div
