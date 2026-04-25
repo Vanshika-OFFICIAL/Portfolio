@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import profileImage from "../assets/profile.jpg";
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiTailwindcss, SiJavascript } from "react-icons/si";
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs,SiFirebase, SiJavascript } from "react-icons/si";
 const TECH = [
   { label: "MongoDB",    angle:   0, color: "#47A248", Icon: SiMongodb },
   { label: "Express",    angle:  60, color: "#9ca3af", Icon: SiExpress },
   { label: "React",      angle: 120, color: "#61DAFB", Icon: SiReact },
   { label: "Node.js",    angle: 180, color: "#68A063", Icon: SiNodedotjs },
-  { label: "Tailwind",   angle: 240, color: "#38BDF8", Icon: SiTailwindcss },
+  { label: "Firebase",   angle: 240, color: "#FFCB2B", Icon: SiFirebase },
   { label: "JavaScript", angle: 300, color: "#F7DF1E", Icon: SiJavascript },
 ];
 
@@ -36,7 +36,7 @@ export default function TechOrbit() {
           aria-label={label}
           className="absolute w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold cursor-default"
           style={{
-            ...BadgePosition(angle,118),
+            ...BadgePosition(angle, window.innerWidth > 1024 ? 200 : 120),
             background: "rgba(13,13,24,0.92)",
             border: `1px solid ${color}38`,
             color,
