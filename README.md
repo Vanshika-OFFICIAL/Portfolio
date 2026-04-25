@@ -5,7 +5,7 @@
 ---
 
 ## 🌐 Live Portfolio  
-👉 portfolio-one-coral-u3ginwdd8o.vercel.app
+https://portfolio-one-coral-u3ginwdd8o.vercel.app
 
 ---
 
