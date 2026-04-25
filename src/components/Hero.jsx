@@ -130,7 +130,7 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="/resume.pdf"
+              href="/RESUME.pdf"
               download
               className="inline-flex items-center gap-2 border border-slate-700/80 hover:border-violet-500/50 hover:text-violet-400 text-slate-400 text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07070f]"
             >
