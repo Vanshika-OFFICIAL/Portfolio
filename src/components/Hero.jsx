@@ -32,7 +32,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Hero"
-      className="relative min-h-screen bg-[#07070f] flex items-center overflow-hidden px-6 md:px-12 lg:px-20 py-24"
+      className="min-h-screen bg-[#07070f] px-6 md:px-12 lg:px-20 py-24 scroll-mt-24"
     >
       {/* Cursor glow — transform-only, zero reflow cost */}
       <div

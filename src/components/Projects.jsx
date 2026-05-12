@@ -7,7 +7,7 @@ export default function Projects() {
       id="projects"
       className="py-24 px-6 md:px-12 lg:px-20 bg-[#07070f]"
     >
-      <div className="max-w-6xl mx-auto flex flex-col gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col gap-12 ">
 
         {/* HEADING */}
         <div className="text-center">

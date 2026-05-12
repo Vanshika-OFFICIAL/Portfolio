@@ -14,13 +14,13 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative isolate overflow-hidden min-h-screen bg-[#07070f] px-6 md:px-12 lg:px-20 py-24 scroll-mt-24"
+      className="min-h-screen bg-[#07070f] px-6 md:px-12 lg:px-20 py-24 scroll-mt-24"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-48 left-1/2 h-105 w-105 -translate-x-1/2 rounded-full bg-violet-600/10 blur-[130px]" />
+        <div className="absolute -top-48 left-1/2 h-105 w-105 -translate-x-1/2 rounded-full bg-violet-600/10 blur-[100px]" />
         <div className="absolute -bottom-40 -left-28 h-80 w-80 rounded-full bg-indigo-500/10 blur-[120px]" />
         <div
-          className="absolute inset-0 opacity-[0.05]"
+          className="absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage:
               "linear-gradient(to right, rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.18) 1px, transparent 1px)",

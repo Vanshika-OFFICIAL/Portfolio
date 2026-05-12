@@ -11,16 +11,16 @@ export default function ProjectCard({ project }) {
           src={imageSrc}
           alt={title}
           loading="lazy"
-          className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition duration-500 group-hover:scale-105 "
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
       </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col grow p-5 gap-4">
+      <div className="flex flex-col grow p-5 gap-4 items">
 
         {/* TITLE */}
-        <h3 className="text-lg font-semibold text-white">
+        <h3 className="text-lg font-semibold text-white text-center">
           {title}
         </h3>
 
