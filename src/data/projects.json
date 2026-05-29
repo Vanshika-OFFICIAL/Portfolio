@@ -5,9 +5,8 @@
   "problem": "Traditional note-taking applications often lack secure authentication and organized cloud-based note management.",
   "impact": "Built a full-stack MERN notes platform with REST APIs, MongoDB Atlas integration, and scalable backend architecture for efficient note management.",
   "tech": ["React.js", "Node.js", "Express.js", "MongoDB Atlas", "JWT", "REST APIs","Postman","Tailwind CSS"],
-  "github": "https://github.com/Vanshika-OFFICIAL/smart-notes-app/tree/main",
-  "live": "",
-  "status": "Under Development",
+  "github": "https://github.com/Vanshika-OFFICIAL/smart-notes-app",
+  "live": "https://smart-notes-app-wheat.vercel.app/",
   "image": "SmartNotes.png"
 },
   {
