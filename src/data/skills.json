@@ -1,46 +1,62 @@
 [
   {
-    "category": "Frontend",
-    "skills": [
-      { "name": "React.js", "level": 85 },
-      { "name": "JavaScript", "level": 89 },
-      { "name": "Tailwind CSS", "level": 88 },
-      { "name": "HTML5", "level": 85 },
-      { "name": "CSS3", "level": 83 }
-    ]
+    "name": "React",
+    "icon": "react",
+    "description": "Component-driven interfaces"
   },
   {
-    "category": "Backend",
-    "skills": [
-      { "name": "Node.js", "level": 80 },
-      { "name": "Express.js", "level": 78 },
-      { "name": "REST APIs", "level": 84 },
-      { "name": "JWT Authentication", "level": 76 }
-    ]
+    "name": "JavaScript",
+    "icon": "javascript",
+    "description": "Modern ES6+ development"
   },
   {
-    "category": "Database",
-    "skills": [
-      { "name": "MongoDB", "level": 80 },
-      { "name": "MongoDB Atlas", "level": 82 },
-      { "name": "Firebase", "level": 75 },
-      { "name": "MySQL", "level": 70 }
-    ]
+    "name": "Tailwind CSS",
+    "icon": "tailwind",
+    "description": "Utility-first styling"
   },
   {
-    "category": "Tools",
-    "skills": [
-      { "name": "Git", "level": 75 },
-      { "name": "GitHub", "level": 78 },
-      { "name": "Postman", "level": 82 },
-      { "name": "VS Code", "level": 89 }
-    ]
+    "name": "Node.js",
+    "icon": "node",
+    "description": "Server-side JavaScript"
   },
   {
-    "category": "Programming",
-    "skills": [
-      { "name": "Python", "level": 78 },
-      { "name": "C", "level": 68 }
-    ]
+    "name": "Express.js",
+    "icon": "express",
+    "description": "REST API development"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "mongodb",
+    "description": "NoSQL database"
+  },
+  {
+    "name": "Firebase",
+    "icon": "firebase",
+    "description": "Auth & cloud services"
+  },
+  {
+    "name": "Git",
+    "icon": "git",
+    "description": "Version control"
+  },
+  {
+    "name": "GitHub",
+    "icon": "github",
+    "description": "Code collaboration"
+  },
+  {
+    "name": "Postman",
+    "icon": "postman",
+    "description": "API testing"
+  },
+  {
+    "name": "JWT",
+    "icon": "jwt",
+    "description": "Authentication"
+  },
+  {
+    "name": "MySQL",
+    "icon": "mysql",
+    "description": "Relational database"
   }
 ]

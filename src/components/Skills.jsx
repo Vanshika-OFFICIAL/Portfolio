@@ -1,157 +1,193 @@
-import skillsData from "../data/skills.json";
+import skills from "../data/skills.json";
+
+import {
+  FaReact,
+  FaNodeJs,
+  FaGithub,
+  FaGitAlt,
+} from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiPostman,
+  SiMysql,
+} from "react-icons/si";
+
+import { RiShieldKeyholeLine } from "react-icons/ri";
+
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+
+const iconMap = {
+  react: FaReact,
+  javascript: SiJavascript,
+  tailwind: SiTailwindcss,
+  node: FaNodeJs,
+  express: SiExpress,
+  mongodb: SiMongodb,
+  firebase: SiFirebase,
+  git: FaGitAlt,
+  github: FaGithub,
+  postman: SiPostman,
+  jwt: RiShieldKeyholeLine,
+  mysql: SiMysql,
+};
 
 export default function Skills() {
-  const totalCategories = skillsData.length;
-  const totalSkills = skillsData.reduce((count, group) => count + group.skills.length, 0);
-  const averageLevel = Math.round(
-    skillsData.reduce((sum, group) => sum + group.skills.reduce((groupSum, skill) => groupSum + skill.level, 0), 0) /
-      totalSkills
-  );
-  const strongestSkill = skillsData
-    .flatMap((group) => group.skills)
-    .reduce((best, skill) => (skill.level > best.level ? skill : best));
+  const { scrollYProgress } = useScroll();
 
   return (
     <section
       id="skills"
-      className="min-h-screen bg-[#07070f] px-6 md:px-12 lg:px-20 py-24 scroll-mt-24"
+      className="relative overflow-hidden bg-[#07070f] px-6 py-28 md:px-12 lg:px-20"
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-48 left-1/2 h-105 w-105 -translate-x-1/2 rounded-full bg-violet-600/10 blur-[100px]" />
-        <div className="absolute -bottom-40 -left-28 h-80 w-80 rounded-full bg-indigo-500/10 blur-[120px]" />
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
+
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage:
-              "linear-gradient(to right, rgba(148,163,184,0.18) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.18) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+              "linear-gradient(to right, rgba(148,163,184,0.15) 1px, transparent 1px),linear-gradient(to bottom, rgba(148,163,184,0.15) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
           }}
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16">
-        <div className="max-w-3xl">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-violet-300/70" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-            Capability snapshot
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Header */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <p
+            className="text-[11px] uppercase tracking-[0.35em] text-violet-300/70"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
+          >
+            Capability Snapshot
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold leading-[1.02] text-white md:text-5xl lg:text-6xl" style={{ fontFamily: "'Syne', sans-serif" }}>
-            Skills &{" "}
-            <span className="bg-linear-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
-              Technologies
+          <h2
+            className="mt-4 text-5xl font-bold text-white md:text-6xl"
+            style={{
+              fontFamily: "'Syne', sans-serif",
+            }}
+          >
+            Technologies I{" "}
+            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
+              Work With
             </span>
           </h2>
 
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-            A production-ready stack I use to architect, build, and scale real-world applications with clean UI, fast interactions, and stable backends.
+          <p className="mt-6 text-lg leading-relaxed text-slate-400">
+            The technologies I use to build full-stack
+            applications, experiment with ideas, and
+            continuously improve through hands-on
+            projects.
           </p>
+        </motion.div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {["Frontend", "Backend", "Database", "Deployment"].map((label) => (
-              <span
-                key={label}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-slate-300"
-                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+        {/* Tech Wall */}
+
+        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {skills.map((skill, index) => {
+            const Icon = iconMap[skill.icon];
+
+            const y = useTransform(
+              scrollYProgress,
+              [0, 1],
+              [0, (index % 4) * 20]
+            );
+
+            return (
+              <motion.div
+                key={skill.name}
+                style={{ y }}
+                initial={{
+                  opacity: 0,
+                  y: 50,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.05,
+                }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md"
               >
-                {label}
+                <div className="absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
+                  <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.22),transparent_65%)]" />
+                </div>
+
+                <div className="relative z-10">
+                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-violet-500/20 bg-violet-500/10">
+                    <Icon
+                      size={34}
+                      className="text-violet-300"
+                    />
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-white">
+                    {skill.name}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                    {skill.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Currently Exploring */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+          <h3 className="text-2xl font-semibold text-white">
+            Currently Exploring
+          </h3>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {[
+              "AWS",
+              "System Design",
+              "Backend Optimization",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-2 text-sm text-violet-300"
+              >
+                {item}
               </span>
             ))}
           </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-              Average proficiency
-            </p>
-            <p className="mt-4 text-4xl font-bold text-white tabular-nums" style={{ fontFamily: "'Syne', sans-serif" }}>
-              {averageLevel}%
-            </p>
-            <p className="mt-2 text-sm text-slate-400">Across the current stack.</p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-              Strongest skill
-            </p>
-            <p className="mt-4 text-2xl font-bold text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
-              {strongestSkill.name}
-            </p>
-            <p className="mt-2 text-sm text-violet-300">{strongestSkill.level}% mastery</p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-              Categories
-            </p>
-            <p className="mt-4 text-4xl font-bold text-white tabular-nums" style={{ fontFamily: "'Syne', sans-serif" }}>
-              {totalCategories}
-            </p>
-            <p className="mt-2 text-sm text-slate-400">Frontend, backend, database, and language systems.</p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/3 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.22em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-              Skills tracked
-            </p>
-            <p className="mt-4 text-4xl font-bold text-white tabular-nums" style={{ fontFamily: "'Syne', sans-serif" }}>
-              {totalSkills}
-            </p>
-            <p className="mt-2 text-sm text-slate-400">Always expanding, never padded.</p>
-          </div>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {skillsData.map((group) => (
-            <div
-              key={group.category}
-              className="group relative rounded-3xl border border-white/10 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 md:group-hover:-translate-y-1 md:group-hover:border-violet-400/40 md:group-hover:bg-white/5"
-            >
-              <div className="absolute inset-0 rounded-3xl opacity-0 transition duration-300 md:group-hover:opacity-100 pointer-events-none">
-                <div className="h-full w-full rounded-3xl bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_65%)]" />
-              </div>
-
-              <div className="relative z-10 flex h-full flex-col gap-5">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.24em] text-violet-300/70" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                      Category
-                    </p>
-                    <h3 className="mt-2 text-xl font-semibold text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
-                      {group.category}
-                    </h3>
-                  </div>
-
-                  <span className="inline-flex rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-[11px] font-medium text-violet-300">
-                    {group.skills.length} tools
-                  </span>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  {group.skills.map((skill) => (
-                    <div key={skill.name} className="flex flex-col gap-1.5">
-                      <div className="flex items-center justify-between gap-3 text-sm">
-                        <span className="text-slate-200">{skill.name}</span>
-                        <span className="font-medium text-violet-300 tabular-nums">{skill.level}%</span>
-                      </div>
-
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
-                        <div
-                          style={{ width: `${skill.level}%` }}
-                          className="h-full rounded-full bg-linear-to-r from-violet-500 via-fuchsia-500 to-indigo-500 shadow-[0_0_18px_rgba(168,85,247,0.35)]"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-2 text-xs uppercase tracking-[0.18em] text-slate-500" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  {group.category} systems tuned for production
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
