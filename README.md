@@ -2,7 +2,7 @@
 
 ### Full-Stack MERN Developer
 
-I’m a B.Tech Computer Science graduate passionate about building web applications that combine clean user experiences with reliable backend systems.
+I’m a B.Tech Information Technology graduate passionate about building web applications that combine clean user experiences with reliable backend systems.
 
 My focus is on learning by building—creating projects that help me strengthen my understanding of frontend development, backend architecture, authentication, databases, and modern web technologies.
 
