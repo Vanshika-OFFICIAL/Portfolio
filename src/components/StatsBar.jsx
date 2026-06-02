@@ -2,9 +2,9 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STATS = [
-  { end: 5,   suffix: "+",   label: "Apps shipped",    sub: "deployed & live"   },
-  { end: 15,  suffix: "+",  label: "Technologies",    sub: "across the stack"  },
-  { end: 2026, suffix: "",  label: "B.Tech",        sub: "IT graduate"       },
+  { end: 3,   suffix: "+",   label: "Featured Projects",    sub: "deployed & live"   },
+  { end: "4",  suffix: "",  label: "MERN",    sub: "Core Technologies"  },
+  { end: 2026, suffix: "",  label: "Graduation",        sub: "B.Tech Information Technology"       },
 ];
 
 function useCountUp(target, isActive, duration = 1200) {

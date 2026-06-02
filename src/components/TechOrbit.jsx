@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
-import profileImage from "../assets/profile.jpg";
 import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+import profileImage from "../assets/profile.jpg";
+
 import {
   SiMongodb,
   SiExpress,
@@ -21,29 +23,34 @@ const TECH = [
 
 function BadgePosition(angleDeg, radius) {
   const rad = (angleDeg * Math.PI) / 180;
+
   return {
-    top: `calc(50% + ${Math.sin(rad) * radius}px - 18px)`,
-    left: `calc(50% + ${Math.cos(rad) * radius}px - 18px)`,
+    top: `calc(50% + ${Math.sin(rad) * radius}px - 20px)`,
+    left: `calc(50% + ${Math.cos(rad) * radius}px - 20px)`,
   };
 }
 
 export default function TechOrbit() {
   const containerRef = useRef(null);
   const [radius, setRadius] = useState(120);
+  const { scrollY } = useScroll();
 
+  const imageY = useTransform(scrollY, [0, 1000], [0, 30]);
+
+  const orbitY = useTransform(scrollY, [0, 1000], [0, -20]);
+
+  const glowY = useTransform(scrollY, [0, 1000], [0, 15]);
   useEffect(() => {
     const updateRadius = () => {
       if (!containerRef.current) return;
 
       const size = containerRef.current.offsetWidth;
 
-      // 🔥 ONLY FIX: dynamic radius based on container
-      const calculatedRadius = size / 2.1;
-
-      setRadius(calculatedRadius);
+      setRadius(size / 2.1);
     };
 
     updateRadius();
+
     window.addEventListener("resize", updateRadius);
 
     return () => window.removeEventListener("resize", updateRadius);
@@ -52,91 +59,150 @@ export default function TechOrbit() {
   return (
     <div
       ref={containerRef}
-      className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] shrink-0"
+      className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] shrink-0"
     >
+      {/* Main Orbit Ring */}
 
-      {/* Orbit ring */}
       <motion.div
         className="absolute inset-0 rounded-full border border-dashed border-violet-500/15"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+        animate={{
+          rotate: 360,
+        }}
+        transition={{
+          duration: 120,
+          repeat: Infinity,
+          ease: "linear",
+        }}
       />
 
-      {/* Tech badges */}
-      {TECH.map(({ label, angle, color, Icon }) => (
-        <motion.div
-          key={label}
-          aria-label={label}
-          className="absolute w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-[11px] font-bold cursor-default"
-          style={{
-            ...BadgePosition(angle, radius),
-            background: "rgba(13,13,24,0.92)",
-            border: `1px solid ${color}38`,
-            color,
-          }}
-          whileHover={{ scale: 1.15, borderColor: color + "88" }}
-          transition={{ type: "spring", stiffness: 340, damping: 22 }}
-          title={label}
-        >
-          <Icon className="text-[14px] sm:text-[16px]" />
-        </motion.div>
-      ))}
+      {/* Orbiting Particle */}
 
-      {/* Image frame */}
-      <div
-        className="absolute inset-10 sm:inset-8 lg:inset-10 rounded-3xl p-0.5"
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          rotate: -360,
+        }}
+        transition={{
+          duration: 80,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <div className="absolute top-1/2 left-0 w-2 h-2 rounded-full bg-violet-400 blur-[2px]" />
+      </motion.div>
+
+      {/* Tech Badges Orbit */}
+
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          y: orbitY,
+        }}
+        transition={{
+          duration: 26,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        {TECH.map(({ label, angle, color, Icon }) => (
+          <motion.div
+            key={label}
+            style={{
+              ...BadgePosition(angle, radius),
+              background: "rgba(13,13,24,0.92)",
+              border: `1px solid ${color}38`,
+              color,
+            }}
+            className="absolute w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md"
+            whileHover={{
+              scale: 1.18,
+              y: -2,
+            }}
+            animate={{
+              y: angle % 120 === 0 ? [0, -5, 0] : [0, 5, 0],
+            }}
+            transition={{
+              duration: 5 + angle / 100,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            title={label}
+          >
+            <Icon className="text-[17px]" />
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Floating Profile Card */}
+
+      <motion.div
+        className="absolute inset-10 rounded-3xl p-[2px]"
+        animate={{
+          y: [0, -8, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         style={{
           background:
-            "linear-gradient(140deg, #7c3aed 0%, #6366f1 55%, #4f46e5 100%)",
-          boxShadow: [
-            "0 0 0 1px rgba(124,58,237,0.12)",
-            "0 8px 30px rgba(124,58,237,0.20)",
-            "0 20px 56px rgba(99,102,241,0.12)",
-          ].join(", "),
+            "linear-gradient(140deg,#7c3aed 0%,#6366f1 55%,#4f46e5 100%)",
+          boxShadow:
+            "0 0 0 1px rgba(124,58,237,0.12),0 8px 30px rgba(124,58,237,0.20),0 20px 56px rgba(99,102,241,0.12)",
         }}
       >
         <div
-          className="relative w-full h-full rounded-[22px] overflow-hidden"
+          className="relative w-full h-full rounded-[24px] overflow-hidden"
           style={{
-            background:
-              "linear-gradient(160deg, #13102a 0%, #0a0a18 100%)",
+            background: "linear-gradient(160deg,#13102a 0%,#0a0a18 100%)",
           }}
         >
-          {/* Shimmer */}
+          {/* Shimmer Overlay */}
+
           <div
-            className="absolute inset-0 z-30 pointer-events-none"
+            className="absolute inset-0 z-20 pointer-events-none"
             style={{
               background:
-                "linear-gradient(145deg, rgba(167,139,250,0.09) 0%, rgba(99,102,241,0.03) 40%, transparent 65%)",
+                "linear-gradient(145deg,rgba(167,139,250,0.08) 0%,rgba(99,102,241,0.03) 45%,transparent 70%)",
             }}
           />
 
-          {/* Bottom fade */}
+          {/* Bottom Fade */}
+
           <div
             className="absolute bottom-0 left-0 right-0 h-1/3 z-10 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(7,7,15,0.52) 0%, transparent 100%)",
+                "linear-gradient(to top,rgba(7,7,15,0.55),transparent)",
             }}
           />
 
-          {/* Image */}
           <img
             src={profileImage}
-            alt="Vanshika, MERN Stack Developer"
+            alt="Vanshika Aggarwal"
             className="w-full h-full object-cover object-center"
           />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Glow */}
-      <div
+      {/* Animated Glow */}
+
+      <motion.div
         className="absolute inset-8 rounded-3xl -z-10 pointer-events-none"
+        animate={{
+          opacity: [0.55, 1, 0.55],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(109,40,217,0.16) 0%, rgba(79,70,229,0.07) 55%, transparent 75%)",
-          filter: "blur(22px)",
-          transform: "scale(1.08) translateY(6px)",
+            "radial-gradient(ellipse at center,rgba(109,40,217,0.18) 0%,rgba(79,70,229,0.08) 55%,transparent 75%)",
+          filter: "blur(28px)",
         }}
       />
     </div>

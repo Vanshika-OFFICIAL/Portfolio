@@ -14,6 +14,7 @@
     "icon": "tailwind",
     "description": "Utility-first styling"
   },
+
   {
     "name": "Node.js",
     "icon": "node",
@@ -24,16 +25,24 @@
     "icon": "express",
     "description": "REST API development"
   },
+
   {
     "name": "MongoDB",
     "icon": "mongodb",
     "description": "NoSQL database"
+  },
+
+  {
+    "name": "JWT",
+    "icon": "jwt",
+    "description": "Authentication"
   },
   {
     "name": "Firebase",
     "icon": "firebase",
     "description": "Auth & cloud services"
   },
+
   {
     "name": "Git",
     "icon": "git",
@@ -49,11 +58,7 @@
     "icon": "postman",
     "description": "API testing"
   },
-  {
-    "name": "JWT",
-    "icon": "jwt",
-    "description": "Authentication"
-  },
+
   {
     "name": "MySQL",
     "icon": "mysql",

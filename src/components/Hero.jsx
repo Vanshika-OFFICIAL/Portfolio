@@ -99,10 +99,10 @@ export default function Hero() {
             className="text-2xl sm:text-3xl xl:text-[2.1rem] font-bold leading-[1.22] tracking-tight"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
-            <span className="text-slate-200">I ship full-stack apps</span>
+            <span className="text-slate-200">Building full-stack applications</span>
             <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-400 to-indigo-400">
-              that hold up in production.
+              with the MERN stack.
             </span>
           </motion.p>
 
@@ -111,8 +111,8 @@ export default function Hero() {
             {...fadeUp(0.32)}
             className="text-[14.5px] text-slate-500 leading-relaxed max-w-100 border-l-2 border-violet-600/30 pl-4"
           >
-            From schema design to deployed UI — I own the full MERN stack.
-            Five shipped products. Clean code. No half-finished repos.
+            I build end-to-end applications using the MERN stack.
+              Focused on creating responsive user experiences, secure APIs and scalable backend systems.
           </motion.p>
 
           {/* CTAs */}

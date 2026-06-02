@@ -1,20 +1,36 @@
 [
   {
-  "id": 1,
-  "title": "Smart Notes App",
-  "problem": "Traditional note-taking applications often lack secure authentication and organized cloud-based note management.",
-  "impact": "Built a full-stack MERN notes platform with REST APIs, MongoDB Atlas integration, and scalable backend architecture for efficient note management.",
-  "tech": ["React.js", "Node.js", "Express.js", "MongoDB Atlas", "JWT", "REST APIs","Postman","Tailwind CSS"],
-  "github": "https://github.com/Vanshika-OFFICIAL/smart-notes-app",
-  "live": "https://smart-notes-app-wheat.vercel.app/",
-  "image": "SmartNotes.png"
-},
+    "id": 1,
+    "title": "Smart Notes App",
+    "problem": "Traditional note-taking applications often lack secure authentication and organized cloud-based note management.",
+    "impact": "Built a full-stack MERN note management platform with JWT authentication, REST APIs, MongoDB Atlas integration, and scalable backend architecture for secure and efficient note organization.",
+    "tech": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "JWT",
+      "REST APIs",
+      "Postman",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/Vanshika-OFFICIAL/smart-notes-app",
+    "live": "https://smart-notes-app-wheat.vercel.app/",
+    "image": "SmartNotes.png"
+  },
   {
     "id": 2,
     "title": "BioVault – Secure Biomedical Data Portal",
-    "problem": "Healthcare systems lack secure and structured ways to manage sensitive biomedical data.",
-    "impact": "Implemented role-based authentication and secure APIs, improving data access control and system reliability.",
-    "tech": ["React.js", "Node.js", "MongoDB", "Firebase"],
+    "problem": "Managing sensitive biomedical data requires secure authentication and controlled access to protect critical information.",
+    "impact": "Developed a secure biomedical data portal with Firebase Authentication, role-based access management, and protected workflows for handling sensitive datasets.",
+    "tech": [
+      "React.js",
+      "Node.js",
+      "Firebase Authentication",
+      "Firestore",
+      "Role-Based Access Control",
+      "Tailwind CSS"
+    ],
     "github": "https://github.com/Vanshika-OFFICIAL/BioVault-Data-Portal",
     "live": "https://biovault-e4f8e.firebaseapp.com/",
     "image": "BioVault.png"
@@ -22,9 +38,14 @@
   {
     "id": 3,
     "title": "IngreGenius – Recipe Recommendation Platform",
-    "problem": "Users struggle to find recipes using available ingredients.",
-    "impact": "Built an API-driven filtering system that improves recipe discovery speed and user decision-making.",
-    "tech": ["React", "Node.js", "MongoDB", "REST API"],
+    "problem": "Users often struggle to discover recipes using the ingredients they already have available.",
+    "impact": "Built a recipe discovery platform with ingredient-based search, Firebase-powered data management, and filtering functionality to simplify meal planning.",
+    "tech": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Firebase"
+    ],
     "github": "https://github.com/Vanshika-OFFICIAL/IngreGenius-RecipeSite",
     "live": "https://ingregenius.netlify.app/",
     "image": "IngreGenius.png"
