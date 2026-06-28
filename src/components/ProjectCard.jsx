@@ -6,7 +6,7 @@ export default function ProjectCard({ project }) {
     <article className="group flex flex-col h-full rounded-xl border border-white/10 bg-[#0f0f1c] overflow-hidden transition md:hover:-translate-y-1 hover:border-white/20">
 
       {/* IMAGE */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-40 overflow-hidden">
         <img
           src={imageSrc}
           alt={title}
@@ -17,7 +17,7 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col grow p-5 gap-4 items">
+      <div className="flex flex-col grow p-4 gap-3 items">
 
         {/* TITLE */}
         <h3 className="text-lg font-semibold text-white text-center">
@@ -25,12 +25,12 @@ export default function ProjectCard({ project }) {
         </h3>
 
         {/* PROBLEM */}
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-slate-400 line-clamp-2">
           {problem}
         </p>
 
         {/* IMPACT */}
-        <p className="text-sm text-white font-medium">
+        <p className="text-sm text-white font-medium line-clamp-3">
           {impact}
         </p>
 
